@@ -35,7 +35,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 func msgHandler(w http.ResponseWriter, r *http.Request) {
 
 	q := "Akira - OST - Full Album"
-	q = r.FormValue("q")
+	q = r.FormValue("body")
 
 	client := &http.Client{
 		Transport: &transport.APIKey{Key: developerKey},
