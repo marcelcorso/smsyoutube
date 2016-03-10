@@ -1,0 +1,30 @@
+{
+	"ImportPath": "bitbucket.org/marcelcorso/smsyoutube",
+	"GoVersion": "go1.6",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "8a875a034c69b940914d83ea03d3f1299b4d094b"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "961116aeebe66bfb58bb4d51818c70d256acbbb8"
+		},
+		{
+			"ImportPath": "google.golang.org/api/gensupport",
+			"Rev": "e61f6e00cdf8b78313641288c50f6e2d4e3d749c"
+		},
+		{
+			"ImportPath": "google.golang.org/api/googleapi",
+			"Rev": "e61f6e00cdf8b78313641288c50f6e2d4e3d749c"
+		},
+		{
+			"ImportPath": "google.golang.org/api/youtube/v3",
+			"Rev": "e61f6e00cdf8b78313641288c50f6e2d4e3d749c"
+		}
+	]
+}
