@@ -6,10 +6,17 @@
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
 <style>
+
+body, html {
+        padding: 0; 
+        margin:0; 
+        background:#000;
+}
+
 #wrapper {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
-        padding-top: 25px;
+        top: 50%;  transform: translateY(-50%);
         height: 0;
 }
 #wrapper iframe {
