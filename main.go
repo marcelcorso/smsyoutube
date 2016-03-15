@@ -14,6 +14,7 @@ import (
 	"google.golang.org/api/youtube/v3"
 )
 
+// baby don't hurt me https://www.youtube.com/watch?v=xhrBDcQq2DM
 const developerKey = "AIzaSyDJboG1vzku1lVFmtCsr6wbjKi7hyuw46E"
 
 func main() {
