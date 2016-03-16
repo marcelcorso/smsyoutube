@@ -7,7 +7,7 @@ So I made this little hack real quick where people could SMS a video title to a 
 ## Wanna try?
 
  * goto https://smsyoutube.herokuapp.com/
- * sms "Never Gonna Give You Up" to +447860039713 (or +31635777839 :nl:) 
+ * sms "Never Gonna Give You Up" to +447860039713 (or +31635777839) 
  * RickRoll'D!
 
 ## How does it work?
