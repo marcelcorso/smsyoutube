@@ -1,12 +1,15 @@
 package main
 
 import (
+	"bytes"
+	"crypto/md5"
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -37,6 +40,9 @@ func msgHandler(w http.ResponseWriter, r *http.Request) {
 
 	q := "Akira - OST - Full Album"
 	q = r.FormValue("body")
+	originator := r.FormValue("originator")
+	hash := fmt.Sprintf("%x", md5.Sum([]byte(originator)))
+	userAvatarURL := "https://storage.googleapis.com/graphone-1337.appspot.com/avatars/" + hash + ".png"
 
 	client := &http.Client{
 		Transport: &transport.APIKey{Key: developerKey},
@@ -62,15 +68,24 @@ func msgHandler(w http.ResponseWriter, r *http.Request) {
 		switch item.Id.Kind {
 		case "youtube#video":
 			// item.Id.VideoId
-			post(item.Id.VideoId)
+			post(item.Id.VideoId, item.Snippet.Title, userAvatarURL)
 		}
 	}
 }
 
-func post(id string) {
+func post(id, title, userAvatar string) {
 	log.Printf("- %s \n", id)
-	body := strings.NewReader("\"" + id + "\"")
-	req, err := http.NewRequest("POST", "https://smsyoutube.firebaseio.com/rooms/one/messages.json", body)
+	entry := struct {
+		ID         string `json:"id"`
+		Title      string `json:"title"`
+		UserAvatar string `json:"user_avatar"`
+	}{ID: id, Title: title, UserAvatar: userAvatar}
+	bs, err := json.Marshal(entry)
+	if err != nil {
+		log.Println(err)
+	}
+
+	req, err := http.NewRequest("POST", "https://smsyoutube.firebaseio.com/rooms/one/messages.json", bytes.NewReader(bs))
 	if err != nil {
 		log.Println(err)
 	}
