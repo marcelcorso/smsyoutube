@@ -19,24 +19,12 @@ body, html {
 
 .wrapper {
         position: relative;
-        padding-bottom: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 0;
         text-align: center;
 }
 .wrapper iframe {
         position: relative;
         width: 100%;
         height: 95vh;
-}
-
-.wrapper img {
-    border-radius: 4px;
-}
-
-.fa, h1 {
-    display: inline-block;
 }
 
 #msg-wrapper {
@@ -49,24 +37,51 @@ body, html {
     margin-right: 15px;
 }
 
-#video-wrapper h2 {
-    display: block;
-}
-#video-wrapper h3 {
-    display: inline-block;
-    vertical-align: top;
-    line-height: 60px;
-    margin: 0;
+#msg-wrapper img {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.7;
 }
 
-#video-wrapper .avatar-sm {
-    border-radius: 9999px;
-    width: 60px;
-    height: 60px;
+#msg-wrapper h1 {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.heading {
+    margin: 0;
+    width: 100%;
+    padding: 3vw;
+}
+
+.text h3 {
+    text-align: left;
+    margin: 0;
+    line-height: 50px;
+    font-weight: 100;
+    display: block;
+}
+
+.text tel {
+    font-style: italic;
+}
+
+.avatar-sm {
+    border-radius: 4px;
+    width: 100px;
+    height: 100px;
     background-size: cover;
-    display: inline-block;
-    vertical-align: top;
+    float: left;
     margin-right: 25px;
+}
+
+#video-wrapper .fa {
+    line-height: 50px;
+    margin-right: 10px;
 }
 
 </style>
@@ -110,8 +125,9 @@ function onPlayerReady(event) {
                 if (playerReady) {
                         console.log(entry.title + " by " + entry.user_avatar)
                         player.loadVideoById({videoId: entry.id});
-                        $('#msg-wrapper').html('<i class="fa fa-youtube-play"></i>' + "<h1>" + entry.title + '</h1><p>by</p><img onload="showMsg();" src="' + entry.user_avatar + '" />');
-                        $('#video-wrapper h2').after('<div class="avatar-sm" style="background-image:url(' + entry.user_avatar + ')"></div> <h3>Now: ' + entry.title + '</h3>');
+                        $('#msg-wrapper').html('<h1><i class="fa fa-youtube-play"></i>' + entry.title + '</h1><img onload="showMsg();" src="' + entry.user_avatar + '" />');
+                        $('.heading').prepend('<div class="avatar-sm" style="background-image:url(' + entry.user_avatar + ')"></div>');
+                        $('.text').append('<h3><i class="fa fa-play-circle-o"></i> Now: ' + entry.title + '</h3>');
                         player.playVideo();
                 }
         });
@@ -150,7 +166,7 @@ function stopVideo() {
 
 <body>
         <div class="wrapper" id="video-wrapper">
-            <h2>SMS <i class="fa fa-youtube-play"></i> Youtube title to +31635777839 or +447860039713</h2>
+            <div class="heading"><div class="text"><h3><i class="fa fa-comment"></i> SMS a Youtube title to <tel>+31635777839</tel> or <tel>+447860039713</tel></h3></div></div>
             <div id="player"></div>
         </div>
         <div class="wrapper" id="msg-wrapper" style="display: none">
