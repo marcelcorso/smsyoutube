@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>smsyoutube</title>
+    <title>SMS Youtube</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
@@ -17,27 +17,18 @@ body, html {
         color: #ffcf39;
 }
 
-h3 {
-    position: absolute;
-    z-index: 10;
-    margin-top: -2em;
-    left:0;
-    right:0;
-    text-align: center;
-}
-
 .wrapper {
         position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        top: 50%;  transform: translateY(-50%);
+        padding-bottom: 50%;
+        top: 50%;
+        transform: translateY(-50%);
         height: 0;
+        text-align: center;
 }
 .wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative;
         width: 100%;
-        height: 100%;
+        height: 95vh;
 }
 
 .wrapper img {
