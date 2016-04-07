@@ -5,6 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <style>
 
@@ -13,8 +14,16 @@ body, html {
         margin:0;
         background:#000;
         font-family: Montserrat, sans-serif;
-        /* Material Design Deep Orange A400 */
-        color: #FF3D00;
+        color: #ffcf39;
+}
+
+h3 {
+    position: absolute;
+    z-index: 10;
+    margin-top: -2em;
+    left:0;
+    right:0;
+    text-align: center;
 }
 
 .wrapper {
@@ -35,9 +44,18 @@ body, html {
     border-radius: 4px;
 }
 
+.fa, h1 {
+    display: inline-block;
+}
+
 #msg-wrapper {
         padding-top: 100px;
         text-align: center;
+}
+
+#msg-wrapper .fa {
+    font-size: 30px;
+    margin-right: 15px;
 }
 
 </style>
@@ -81,7 +99,7 @@ function onPlayerReady(event) {
                 if (playerReady) {
                         console.log(entry.title + " by " + entry.user_avatar)
                         player.loadVideoById({videoId: entry.id});
-                        $('#msg-wrapper').html("<h1>" + entry.title + '</h1><p>by</p><img onload="showMsg();" src="' + entry.user_avatar + '" />');
+                        $('#msg-wrapper').html('<i class="fa fa-youtube-play"></i>' + "<h1>" + entry.title + '</h1><p>by</p><img onload="showMsg();" src="' + entry.user_avatar + '" />');
                         player.playVideo();
                 }
         });
@@ -120,6 +138,7 @@ function stopVideo() {
 
 <body>
         <div class="wrapper" id="video-wrapper">
+                <h3>SMS <i class="fa fa-youtube-play"></i> Youtube title to +31635777839 or +447860039713</h3>
                 <div id="player"></div>
         </div>
         <div class="wrapper" id="msg-wrapper" style="display: none">
