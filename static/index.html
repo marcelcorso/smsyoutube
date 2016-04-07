@@ -49,6 +49,26 @@ body, html {
     margin-right: 15px;
 }
 
+#video-wrapper h2 {
+    display: block;
+}
+#video-wrapper h3 {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 60px;
+    margin: 0;
+}
+
+#video-wrapper .avatar-sm {
+    border-radius: 9999px;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
+}
+
 </style>
 
 <script>
@@ -91,6 +111,7 @@ function onPlayerReady(event) {
                         console.log(entry.title + " by " + entry.user_avatar)
                         player.loadVideoById({videoId: entry.id});
                         $('#msg-wrapper').html('<i class="fa fa-youtube-play"></i>' + "<h1>" + entry.title + '</h1><p>by</p><img onload="showMsg();" src="' + entry.user_avatar + '" />');
+                        $('#video-wrapper h2').after('<div class="avatar-sm" style="background-image:url(' + entry.user_avatar + ')"></div> <h3>Now: ' + entry.title + '</h3>');
                         player.playVideo();
                 }
         });
@@ -103,7 +124,7 @@ function showMsg() {
         setTimeout(function() {
                 $('#video-wrapper').show();
                 $('#msg-wrapper').hide();
-        }, 7000);
+        }, 1);
 };
 
 
@@ -124,13 +145,13 @@ function stopVideo() {
 
 
 </script>
-
 </head>
+
 
 <body>
         <div class="wrapper" id="video-wrapper">
-                <h3>SMS <i class="fa fa-youtube-play"></i> Youtube title to +31635777839 or +447860039713</h3>
-                <div id="player"></div>
+            <h2>SMS <i class="fa fa-youtube-play"></i> Youtube title to +31635777839 or +447860039713</h2>
+            <div id="player"></div>
         </div>
         <div class="wrapper" id="msg-wrapper" style="display: none">
         </div>
