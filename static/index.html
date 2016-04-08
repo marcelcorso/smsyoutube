@@ -126,6 +126,7 @@ function onPlayerReady(event) {
                         console.log(entry.title + " by " + entry.user_avatar)
                         player.loadVideoById({videoId: entry.id});
                         $('#msg-wrapper').html('<h1><i class="fa fa-youtube-play"></i>' + entry.title + '</h1><img onload="showMsg();" src="' + entry.user_avatar + '" />');
+                        $('.avatar-sm').remove();
                         $('.heading').prepend('<div class="avatar-sm" style="background-image:url(' + entry.user_avatar + ')"></div>');
                         $('.text').append('<h3><i class="fa fa-play-circle-o"></i> Now: ' + entry.title + '</h3>');
                         player.playVideo();
