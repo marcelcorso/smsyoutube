@@ -128,7 +128,7 @@ function onPlayerReady(event) {
                         $('#msg-wrapper').html('<h1><i class="fa fa-youtube-play"></i>' + entry.title + '</h1><img onload="showMsg();" src="' + entry.user_avatar + '" />');
                         $('.avatar-sm').remove();
                         $('.heading').prepend('<div class="avatar-sm" style="background-image:url(' + entry.user_avatar + ')"></div>');
-                        $('.text').append('<h3><i class="fa fa-play-circle-o"></i> Now: ' + entry.title + '</h3>');
+                        $('.text h3:last-child').html('<h3><i class="fa fa-play-circle-o"></i> Now: ' + entry.title + '</h3>');
                         player.playVideo();
                 }
         });
@@ -167,7 +167,7 @@ function stopVideo() {
 
 <body>
         <div class="wrapper" id="video-wrapper">
-            <div class="heading"><div class="text"><h3><i class="fa fa-comment"></i> SMS a Youtube title to <tel>+31635777839</tel> or <tel>+447860039713</tel></h3></div></div>
+            <div class="heading"><div class="text"><h3><i class="fa fa-comment"></i> SMS a Youtube title to <tel>+31635777839</tel> or <tel>+447860039713</tel></h3><h3></h3></div></div>
             <div id="player"></div>
         </div>
         <div class="wrapper" id="msg-wrapper" style="display: none">
